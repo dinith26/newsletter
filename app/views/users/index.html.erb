@@ -2,20 +2,21 @@
     <div class="row justify-content-md-center">
         <div class="col col-lg-12">
             <center><h1>micolet</h1></center>
-            <center><p>Almost new fashion with guarantee</p></center>
+            <center><p><%= t('heading2') %></p></center>
         </div>
         <div class="col col-lg-6">
-            <center><h4>Welcome! Soon we will launch oyr site in this country.</h4></center>
-            <center><h4>Subscribe receive our newsletter</h4></center>
+
+            <center><h4><%= t('welcome') %></h4></center>
+            <center><h4><%= t('subscribe') %></h4></center>
             <%= form_with model: @user, local: true, class: "form-horizontal" do |form| %>
                 <div>
                     <%= form.label :email %><br>
-                    <%= form.text_field :email, class: 'form-control' %>
                     <% @user.errors.full_messages_for(:email).each do |message| %>
-                    <div><%= message %></div>
+                        <div  class="alert alert-danger"><%= message %></div>
                     <% end %>
+                    <%= form.text_field :email, class: 'form-control' %>
                 </div>
-                    <label>Preferences</label>
+                    <label><%= t('preferences') %></label>
                     <% ["Women's Fashion", "Men's Fashion", "Children's Fashion"].each do |tag| -%>
                         <div class="form-check">
                             <%= check_box_tag "preferences[]", tag %>

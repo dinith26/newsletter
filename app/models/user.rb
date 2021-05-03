@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     validates :email, presence: true
     validates :preferences, presence: true
-    validate :check_email
+    # validate :check_email
 
 
     private def check_email
