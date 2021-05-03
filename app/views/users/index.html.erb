@@ -14,6 +14,9 @@
                     <% @user.errors.full_messages_for(:email).each do |message| %>
                         <div  class="alert alert-danger"><%= message %></div>
                     <% end %>
+                    <% @user.errors.full_messages_for(:preferences).each do |message| %>
+                        <div class="alert alert-danger"><%= message %></div>
+                    <% end %>
                     <%= form.text_field :email, class: 'form-control' %>
                 </div>
                     <label><%= t('preferences') %></label>
@@ -23,9 +26,6 @@
                             <%= label_tag "preferences[]", tag %>
                         </div>
                     <% end -%>
-                        <% @user.errors.full_messages_for(:preferences).each do |message| %>
-                        <div><%= message %></div>
-                    <% end %>
                 <div>
                     <%= form.submit class: 'class="btn btn-success' %>
                 </div>

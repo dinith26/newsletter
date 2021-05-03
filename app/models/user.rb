@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     validates :email, presence: true
-    validates :preferences, presence: true
+    validates :preferences, acceptance: true
     # validate :check_email
 
 
