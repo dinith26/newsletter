@@ -3,22 +3,52 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+##########################
+DB config
+Inside the config folder change databse configurations in databse.yml
 
-* Ruby version
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: root
+  host: localhost
 
-* System dependencies
+development:
+  <<: *default
+  database: newsletter
 
-* Configuration
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: newsletter
+  
+#############################
+Migrations
+I have used mysql as a Database and there is a migration for the user table
+command:   rails db:migrate
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
+#####################
+Extra Ball 1 (Optional):
 
-* Services (job queues, cache servers, search engines, etc.)
+I have done Extra Ball 1 but there is some SSL issue in my local.
+Uncomment # validate :check_email and set SMTP configuration in environmrnt.rb file
 
-* Deployment instructions
+# ActionMailer::Base.default_content_type = "text/html"
+# config.action_mailer.delivery_method = :smtp
 
-* ...
+# config.action_mailer.smtp_settings = {
+#     address:              'smtp.gmail.com',
+#     port:                 587,
+#     domain:               'example.com',
+#     user_name:            '<username>',
+#     password:             '<password>',
+#     authentication:       'plain',
+#     enable_starttls_auto: true
+
+# }
