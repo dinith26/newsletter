@@ -4,6 +4,7 @@ This README would normally document whatever steps are necessary to get the
 application up and running.
 
 ##########################
+```
 DB config
 Inside the config folder change databse configurations in databse.yml
 
@@ -31,9 +32,10 @@ Migrations
 I have used mysql as a Database and there is a migration for the user table
 command:   rails db:migrate
 
-
+```
 
 #####################
+```
 Extra Ball 1 (Optional):
 
 I have done Extra Ball 1 but there is some SSL issue in my local.
@@ -52,3 +54,4 @@ Uncomment # validate :check_email and set SMTP configuration in environmrnt.rb f
 #     enable_starttls_auto: true
 
 # }
+```
